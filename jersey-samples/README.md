@@ -10,13 +10,14 @@ Quick links for following:
       * javax.ws.rs.Application
       * jersey.config.server.provider.packages
 2. Core Java Code
-    * [Extending ResourceConfig](jersey-simple/src/main/java/com/venkat/rest/simple/app/JerseySimpleRestServicesApplication.java)
+    * [Extending ResourceConfig: JerseySimpleRestServicesApplication](jersey-simple/src/main/java/com/venkat/rest/simple/app/JerseySimpleRestServicesApplication.java)
 2. Jackson integration
     * [POM changes](jersey-simple/pom.xml#L32-L35)
     * [org.glassfish.jersey.jackson.JacksonFeature](http://javadox.com/org.glassfish.jersey.media/jersey-media-json-jackson/2.8/org/glassfish/jersey/jackson/JacksonFeature.html) gets registered as a [javax.ws.rs.core.Feature](https://docs.oracle.com/javaee/7/api/javax/ws/rs/core/Feature.html)
+      * See [org.glassfish.jersey.jackson.internal.JacksonAutoDiscoverable](http://javadox.com/org.glassfish.jersey.media/jersey-media-json-jackson/2.12/org/glassfish/jersey/jackson/internal/JacksonAutoDiscoverable.html) for more details
 3. Grizzly integration
     * [POM changes](jersey-simple/pom.xml#L28-L31)
-    * [Java main program](jersey-simple/src/main/java/com/venkat/rest/simple/app/JerseySimpleMain.java)
+    * [Java main program: JerseySimpleMain](jersey-simple/src/main/java/com/venkat/rest/simple/app/JerseySimpleMain.java)
       * Create a [org.glassfish.jersey.server.ResourceConfig](http://javadox.com/org.glassfish.jersey.bundles/apidocs/2.11/org/glassfish/jersey/server/ResourceConfig.html)
       * Create ```org.glassfish.grizzly.http.server.HttpServer``` using [org.glassfish.jersey.grizzly2.httpserver.GrizzlyHttpServerFactory](http://javadox.com/org.glassfish.jersey.bundles/apidocs/2.11/org/glassfish/jersey/grizzly2/httpserver/GrizzlyHttpServerFactory.html)
 5. Versioning support:
