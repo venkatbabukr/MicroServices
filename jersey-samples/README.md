@@ -6,7 +6,9 @@ Quick links for following:
 
 1. Deployment Descriptor
     * [web.xml](jersey-simple/src/main/webapp/WEB-INF/web.xml)
-    * [Servlet configuration](jersey-simple/src/main/webapp/WEB-INF/web.xml#L9-L25)
+    * [Servlet configuration](jersey-simple/src/main/webapp/WEB-INF/web.xml#L9-L25): One of the two init-params can be used
+      * javax.ws.rs.Application
+      * jersey.config.server.provider.packages
 2. Core Java Code
     * [Extending ResourceConfig](jersey-simple/src/main/java/com/venkat/rest/simple/app/JerseySimpleRestServicesApplication.java)
 2. Jackson integration
