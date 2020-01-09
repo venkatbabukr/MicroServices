@@ -9,16 +9,16 @@
     <servlet>
         <servlet-name>JerseyRestDemoServlet</servlet-name>
         <servlet-class>org.glassfish.jersey.servlet.ServletContainer</servlet-class>
-        <!-- Define the ResourceConfig class -->
         <init-param>
             <param-name>javax.ws.rs.Application</param-name>
-            <param-value>com.venkat.rest.simple.app.JerseySimpleRestServicesApplication</param-value>
+            <param-value>com.venkat.rest.simple.resources.JerseySimpleResourceConfig</param-value>
         </init-param>
         <!--
-        This can also be done:
+        TODO: Need to see how to make this work with hk2 injections...
+              The @Injects are not getting picked up...
         <init-param>
              <param-name>jersey.config.server.provider.packages</param-name>
-             <param-value>com.venkat.rest.simple.services</param-value>
+             <param-value>com.venkat.rest.simple</param-value>
         </init-param>
         -->
         <load-on-startup>1</load-on-startup>
@@ -27,6 +27,6 @@
     <!-- Map all the URLs to the Jersey ServletContainer -->
     <servlet-mapping>
         <servlet-name>JerseyRestDemoServlet</servlet-name>
-        <url-pattern>/rest/*</url-pattern>
+        <url-pattern>/scdeploy/*</url-pattern>
     </servlet-mapping>
 </web-app>
