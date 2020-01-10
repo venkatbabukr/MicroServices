@@ -23,8 +23,8 @@ Quick links for following:
       * See [org.glassfish.jersey.jackson.internal.JacksonAutoDiscoverable](http://javadox.com/org.glassfish.jersey.media/jersey-media-json-jackson/2.12/org/glassfish/jersey/jackson/internal/JacksonAutoDiscoverable.html) for more details
 4. Grizzly integration
     * [POM changes](jersey-simple/pom.xml#L28-L31)
-    * [Java main program: JerseySimpleMain](jersey-simple/src/main/java/com/venkat/rest/simple/app/JerseySimpleMain.java#L17-L28)
-      * Create a [org.glassfish.jersey.server.ResourceConfig](http://javadox.com/org.glassfish.jersey.bundles/apidocs/2.11/org/glassfish/jersey/server/ResourceConfig.html)
+    * Java main program: [JerseySimpleMain](jersey-simple/src/main/java/com/venkat/rest/simple/app/JerseySimpleMain.java#L17-L28)
+      * Create instance of [JerseySimpleResourceConfig](jersey-simple/src/main/java/com/venkat/rest/simple/resources/JerseySimpleResourceConfig.java) that extends [org.glassfish.jersey.server.ResourceConfig](http://javadox.com/org.glassfish.jersey.bundles/apidocs/2.11/org/glassfish/jersey/server/ResourceConfig.html)
       * Create ```org.glassfish.grizzly.http.server.HttpServer``` using [org.glassfish.jersey.grizzly2.httpserver.GrizzlyHttpServerFactory](http://javadox.com/org.glassfish.jersey.bundles/apidocs/2.11/org/glassfish/jersey/grizzly2/httpserver/GrizzlyHttpServerFactory.html)
 5. Dependency Injection using HK2
     * Use @Inject annotation: See [ResourcesV1](jersey-simple/src/main/java/com/venkat/rest/simple/resources/ResourcesV1.java#L14-15)
@@ -43,5 +43,13 @@ Quick links for following:
     * [Resources V2](jersey-simple/src/main/java/com/venkat/rest/simple/resources/ResourcesV2.java)
 7. Validations
 8. Exception handling
+    * Create [ServiceErrorCode](jersey-simple/src/main/java/com/venkat/rest/simple/exceptions/ServiceErrorCode.java) - an enum of all codes of service errors possible
+    * Create [JSONWebApplicationException](jersey-simple/src/main/java/com/venkat/rest/simple/exceptions/JSONWebApplicationException.java) that extends [javax.ws.rs.WebApplicationException](https://docs.oracle.com/javaee/7/api/javax/ws/rs/WebApplicationException.html)
+    * When exception has to be thrown, throw a new instance of JSONWebApplicationException with suitable ServiceErrorCode. Examples:
+      * [UsersServiceTemplate#getUserById](jersey-simple/src/main/java/com/venkat/rest/simple/services/UsersServiceTemplate.java#L35-L38)
+    * [Constructor](jersey-simple/src/main/java/com/venkat/rest/simple/exceptions/JSONWebApplicationException.java#L12-L17) in JSONWebApplicationException will convert ServiceErrorCode into suitable [javax.ws.rs.core.Response](https://docs.oracle.com/javaee/7/api/javax/ws/rs/core/Response.html) object...
+    * [javax.ws.rs.WebApplicationException](https://docs.oracle.com/javaee/7/api/javax/ws/rs/WebApplicationException.html) hierarchy:
+      * [javax.ws.rs.ClientErrorException](https://docs.oracle.com/javaee/7/api/javax/ws/rs/ClientErrorException.html)
+      * [javax.ws.rs.ServerErrorException](https://docs.oracle.com/javaee/7/api/javax/ws/rs/ServerErrorException.html)
 9. Testing
 10. Internationalization
