@@ -4,8 +4,10 @@ import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 import java.util.Optional;
+import java.util.stream.Collectors;
 
 import com.venkat.rest.simple.data.User;
+import com.venkat.rest.simple.data.UserSearchCriteria;
 import com.venkat.rest.simple.exceptions.JSONWebApplicationException;
 import com.venkat.rest.simple.exceptions.ServiceErrorCode;
 
@@ -35,6 +37,12 @@ public class UsersServiceTemplate<U extends User> {
     public synchronized final U getUserById(String userId) {
         return _filterUsersListById(userId)
                    .orElseThrow(() -> new JSONWebApplicationException(ServiceErrorCode.USER_ID_NOT_FOUND));
+    }
+
+    public final List<U> searchUsers(UserSearchCriteria<U> sc) {
+        return usersList.stream()
+                   .filter(u -> sc.equals(u))
+                   .collect(Collectors.toList());
     }
 
     public synchronized final int addUser(final U user) {

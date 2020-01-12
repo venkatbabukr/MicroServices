@@ -24,6 +24,10 @@ public abstract class UsersResourceTemplate<U extends User, US extends UsersServ
         this.usersService = service;
     }
 
+    protected US getUsersService() {
+        return this.usersService;
+    }
+
     @GET
     @Produces(MediaType.APPLICATION_JSON)
     public final List<U> getUsers() {
