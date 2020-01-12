@@ -6,9 +6,11 @@ Quick links for following:
 
 1. Deployment Descriptor
     * [web.xml](jersey-simple/src/main/webapp/WEB-INF/web.xml)
-    * [Servlet configuration](jersey-simple/src/main/webapp/WEB-INF/web.xml#L9-L25): One of the two &lt;init-params&gt; can be used
-      * javax.ws.rs.Application
-      * jersey.config.server.provider.packages
+    * [Servlet configuration](jersey-simple/src/main/webapp/WEB-INF/web.xml#L9-L25):
+      * [org.glassfish.jersey.servlet.ServletContainer](http://javadox.com/org.glassfish.jersey.containers/jersey-container-servlet-core/2.7/org/glassfish/jersey/servlet/ServletContainer.html) should be used
+      * One of the two &lt;init-params&gt; can be used
+        * javax.ws.rs.Application
+        * jersey.config.server.provider.packages
 2. Core Java Code
     * Extending ResourceConfig: [JerseySimpleResourceConfig](jersey-simple/src/main/java/com/venkat/rest/simple/resources/JerseySimpleResourceConfig.java)
     * Resources & annotations: [UsersResourceTemplate](jersey-simple/src/main/java/com/venkat/rest/simple/resources/UsersResourceTemplate.java), [ResourcesV1](jersey-simple/src/main/java/com/venkat/rest/simple/resources/ResourcesV1.java), [ResourcesV2](jersey-simple/src/main/java/com/venkat/rest/simple/resources/ResourcesV2.java)
