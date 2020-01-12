@@ -12,11 +12,12 @@ Quick links for following:
 2. Core Java Code
     * Extending ResourceConfig: [JerseySimpleResourceConfig](jersey-simple/src/main/java/com/venkat/rest/simple/resources/JerseySimpleResourceConfig.java)
     * Resources & annotations: [UsersResourceTemplate](jersey-simple/src/main/java/com/venkat/rest/simple/resources/UsersResourceTemplate.java), [ResourcesV1](jersey-simple/src/main/java/com/venkat/rest/simple/resources/ResourcesV1.java), [ResourcesV2](jersey-simple/src/main/java/com/venkat/rest/simple/resources/ResourcesV2.java)
-      * @Path
-      * @GET
-      * @POST
-      * @PathParam
-      * @QueryParam
+      * APIs created
+        * [GET /users](jersey-simple/src/main/java/com/venkat/rest/simple/resources/UsersResourceTemplate.java#L31-35)
+        * [GET /users/{id}](jersey-simple/src/main/java/com/venkat/rest/simple/resources/UsersResourceTemplate.java#L37-42)
+        * [GET /users/search](jersey-simple/src/main/java/com/venkat/rest/simple/resources/v1/UsersResource.java#L27-33)
+        * [POST /users](jersey-simple/src/main/java/com/venkat/rest/simple/resources/UsersResourceTemplate.java#L44-51)
+      * Annotations used: [@Path](jersey-simple/src/main/java/com/venkat/rest/simple/resources/UsersResourceTemplate.java#L38), [@GET](jersey-simple/src/main/java/com/venkat/rest/simple/resources/UsersResourceTemplate.java#L37), [@POST](jersey-simple/src/main/java/com/venkat/rest/simple/resources/UsersResourceTemplate.java#L44), [@PathParam](jersey-simple/src/main/java/com/venkat/rest/simple/resources/UsersResourceTemplate.java#L40), [@QueryParam](), [@BeanParam](jersey-simple/src/main/java/com/venkat/rest/simple/resources/v1/UsersResource.java#L31)
 3. Jackson integration
     * [POM changes](jersey-simple/pom.xml#L32-L35)
     * [org.glassfish.jersey.jackson.JacksonFeature](http://javadox.com/org.glassfish.jersey.media/jersey-media-json-jackson/2.8/org/glassfish/jersey/jackson/JacksonFeature.html) gets registered as a [javax.ws.rs.core.Feature](https://docs.oracle.com/javaee/7/api/javax/ws/rs/core/Feature.html)
