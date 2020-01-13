@@ -5,28 +5,29 @@ import javax.ws.rs.core.Response.Status;
 import com.venkat.rest.simple.dto.ExceptionDetailsResponse;
 
 public enum ServiceErrorCode {
-    USER_ID_EXISTS(Status.CONFLICT, "User with given userId already exists!"),
-    USER_ID_NOT_FOUND(Status.NOT_FOUND, "Not able to find user with given userId");
+    USER_ID_EXISTS(Status.CONFLICT, "com.venkat.rest.simple.services.UsersService.addUser.conflict"),
+    USER_ID_NOT_FOUND(Status.NOT_FOUND, "com.venkat.rest.simple.services.UsersService.userNotFound");
 
     private Status responseStatus;
 
-    private String errorMessage;
+    private String errorMsgCode;
 
-    private ServiceErrorCode(Status status, String msg) {
+    private ServiceErrorCode(Status status, String msgCode) {
         responseStatus = status;
-        errorMessage = msg;
+        errorMsgCode = msgCode;
     }
 
     public Status getResponseStatus() {
         return responseStatus;
     }
 
-    public String getErrorMessage() {
-        return errorMessage;
+    public String getErrorMsgCode() {
+        return errorMsgCode;
     }
 
-    public ExceptionDetailsResponse getResponseEntity() {
-        return new ExceptionDetailsResponse(errorMessage);
+    public ExceptionDetailsResponse getExceptionDetailsResponse() {
+        String exceptionMessage = ExceptionMessageProvider.INSTANCE.getMessage(errorMsgCode);
+        return new ExceptionDetailsResponse(exceptionMessage);
     }
 
 }

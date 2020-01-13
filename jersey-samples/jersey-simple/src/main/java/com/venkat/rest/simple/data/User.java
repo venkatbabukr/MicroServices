@@ -1,11 +1,32 @@
 package com.venkat.rest.simple.data;
 
+import javax.validation.constraints.Email;
+import javax.validation.constraints.NotBlank;
+import javax.validation.constraints.Pattern;
+
+import org.hibernate.validator.constraints.Range;
+
 public class User {
+
+    @NotBlank(message =  "{com.venkat.rest.simple.data.User.userId.required}")
+    @Pattern(regexp = "\\w+", message = "{com.venkat.rest.simple.data.User.userId.pattern}")
     private String userId;
+
+    @NotBlank(message = "{com.venkat.rest.simple.data.User.firstName.required}")
+    @Pattern(regexp = "[a-zA-Z]+", message = "{com.venkat.rest.simple.data.User.firstName.pattern}")
     private String firstName;
+
+    @NotBlank(message = "{com.venkat.rest.simple.data.User.lastName.required}")
+    @Pattern(regexp = "[a-zA-Z]+", message = "{com.venkat.rest.simple.data.User.lastName.pattern}")
     private String lastName;
+
+    @NotBlank(message = "{com.venkat.rest.simple.data.User.email.required}")
+    @Email(message = "{com.venkat.rest.simple.data.User.email.pattern}")
     private String email;
+
+    @Range(min = 18, max = 75, message = "{com.venkat.rest.simple.data.User.age.pattern}")
     private int age;
+
     private Sex sex;
 
     public User() { }

@@ -12,7 +12,6 @@ import javax.ws.rs.core.MediaType;
 
 import com.venkat.rest.simple.data.ExtendedUser;
 import com.venkat.rest.simple.dto.ExtendedUserSearchRequest;
-import com.venkat.rest.simple.dto.UserSearchRequest;
 import com.venkat.rest.simple.resources.UsersResourceTemplate;
 import com.venkat.rest.simple.services.UsersServiceV2;
 

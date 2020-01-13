@@ -31,7 +31,19 @@
         </dependency>
         <dependency>
             <groupId>org.glassfish.jersey.media</groupId>
+            <artifactId>jersey-media-moxy</artifactId>
+        </dependency>
+        <!--
+            Looks like jersey-media-json-jackson has to be used along with moxy...
+            Otherwise, some times we get exception: MessageBodyWriter not found
+        -->
+        <dependency>
+            <groupId>org.glassfish.jersey.media</groupId>
             <artifactId>jersey-media-json-jackson</artifactId>
+        </dependency>
+        <dependency>
+           <groupId>org.glassfish.jersey.ext</groupId>
+            <artifactId>jersey-bean-validation</artifactId>
         </dependency>
         <dependency>
             <groupId>junit</groupId>

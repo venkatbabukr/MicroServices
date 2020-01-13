@@ -12,7 +12,7 @@ public class JSONWebApplicationException extends WebApplicationException {
     public JSONWebApplicationException(ServiceErrorCode code) {
         super(Response.status(code.getResponseStatus())
                 .type(MediaType.APPLICATION_JSON)
-                .entity(code.getResponseEntity())
+                .entity(code.getExceptionDetailsResponse())
                 .build());
     }
 

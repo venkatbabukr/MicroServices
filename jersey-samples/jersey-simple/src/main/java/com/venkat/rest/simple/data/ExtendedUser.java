@@ -1,7 +1,12 @@
 package com.venkat.rest.simple.data;
 
+import javax.validation.constraints.NotBlank;
+
 public class ExtendedUser extends User {
+
     private String address;
+
+    @NotBlank(message = "Phone is required...")
     private String phone;
 
     public ExtendedUser() { }

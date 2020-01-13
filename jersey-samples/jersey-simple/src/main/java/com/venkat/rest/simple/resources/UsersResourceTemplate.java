@@ -2,6 +2,8 @@ package com.venkat.rest.simple.resources;
 
 import java.util.List;
 
+import javax.validation.Valid;
+import javax.validation.constraints.NotNull;
 import javax.ws.rs.Consumes;
 import javax.ws.rs.GET;
 import javax.ws.rs.POST;
@@ -45,7 +47,7 @@ public abstract class UsersResourceTemplate<U extends User, US extends UsersServ
     @Consumes(MediaType.APPLICATION_JSON)
     @Produces(MediaType.APPLICATION_JSON)
     // TODO: Need to add validations and exceptions...
-    public final UserAddResponse addUser(final U user) {
+    public final UserAddResponse addUser(@NotNull(message = "{com.venkat.rest.simple.userApi.addUser.user.required}") @Valid final U user) {
         int totalUsersCount = usersService.addUser(user);
         return new UserAddResponse(totalUsersCount);
     }

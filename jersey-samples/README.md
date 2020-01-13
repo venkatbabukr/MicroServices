@@ -21,7 +21,7 @@ Quick links for following:
         * [POST /users](jersey-simple/src/main/java/com/venkat/rest/simple/resources/UsersResourceTemplate.java#L44-51)
       * Annotations used: [@Path](jersey-simple/src/main/java/com/venkat/rest/simple/resources/UsersResourceTemplate.java#L38), [@GET](jersey-simple/src/main/java/com/venkat/rest/simple/resources/UsersResourceTemplate.java#L37), [@POST](jersey-simple/src/main/java/com/venkat/rest/simple/resources/UsersResourceTemplate.java#L44), [@PathParam](jersey-simple/src/main/java/com/venkat/rest/simple/resources/UsersResourceTemplate.java#L40), [@QueryParam](), [@BeanParam](jersey-simple/src/main/java/com/venkat/rest/simple/resources/v1/UsersResource.java#L31)
 3. Jackson integration
-    * [POM changes](jersey-simple/pom.xml#L32-L35): Use one of the following -
+    * [POM changes](jersey-simple/pom.xml#L32-L43): Use both
       * Use [jersey-media-moxy](https://mvnrepository.com/artifact/org.glassfish.jersey.media/jersey-media-moxy) - default recommended
       * Use [jersey-media-json-jackson](https://mvnrepository.com/artifact/org.glassfish.jersey.media/jersey-media-json-jackson)
     * [org.glassfish.jersey.jackson.JacksonFeature](http://javadox.com/org.glassfish.jersey.media/jersey-media-json-jackson/2.8/org/glassfish/jersey/jackson/JacksonFeature.html) gets registered as a [javax.ws.rs.core.Feature](https://docs.oracle.com/javaee/7/api/javax/ws/rs/core/Feature.html)
