@@ -12,8 +12,11 @@ import javax.ws.rs.PathParam;
 import javax.ws.rs.Produces;
 import javax.ws.rs.core.MediaType;
 
+import com.venkat.rest.simple.data.SearchCriteria;
 import com.venkat.rest.simple.data.User;
-import com.venkat.rest.simple.dto.UserAddResponse;
+import com.venkat.rest.simple.dto.CountResponse;
+import com.venkat.rest.simple.dto.ListResponse;
+import com.venkat.rest.simple.dto.SearchResponse;
 import com.venkat.rest.simple.services.UsersServiceTemplate;
 
 public abstract class UsersResourceTemplate<U extends User, US extends UsersServiceTemplate<U>> {
@@ -26,14 +29,15 @@ public abstract class UsersResourceTemplate<U extends User, US extends UsersServ
         this.usersService = service;
     }
 
-    protected US getUsersService() {
-        return this.usersService;
+    protected final SearchResponse<U> searchUsers(SearchCriteria<U> sc) {
+        List<U> searchResults = usersService.searchUsers(sc);
+        return new SearchResponse<U>(sc, searchResults);
     }
 
     @GET
     @Produces(MediaType.APPLICATION_JSON)
-    public final List<U> getUsers() {
-        return usersService.getUsers();
+    public final ListResponse<U> getUsers() {
+        return new ListResponse<U>(usersService.getUsers());
     }
 
     @GET
@@ -47,9 +51,9 @@ public abstract class UsersResourceTemplate<U extends User, US extends UsersServ
     @Consumes(MediaType.APPLICATION_JSON)
     @Produces(MediaType.APPLICATION_JSON)
     // TODO: Need to add validations and exceptions...
-    public final UserAddResponse addUser(@NotNull(message = "{com.venkat.rest.simple.userApi.addUser.user.required}") @Valid final U user) {
+    public final CountResponse addUser(@NotNull(message = "{com.venkat.rest.simple.userApi.addUser.user.required}") @Valid final U user) {
         int totalUsersCount = usersService.addUser(user);
-        return new UserAddResponse(totalUsersCount);
+        return new CountResponse(totalUsersCount);
     }
 
 }

@@ -3,10 +3,10 @@ package com.venkat.rest.simple.dto;
 import javax.ws.rs.QueryParam;
 
 import com.venkat.rest.simple.data.ExtendedUser;
-import com.venkat.rest.simple.data.UserSearchCriteria;
+import com.venkat.rest.simple.data.SearchCriteria;
 import com.venkat.rest.simple.util.StringUtils;
 
-public class ExtendedUserSearchRequest<U extends ExtendedUser> extends UserSearchRequest<U> implements UserSearchCriteria<U> {
+public class ExtendedUserSearchCriteria<U extends ExtendedUser> extends UserSearchCriteria<U> implements SearchCriteria<U> {
 
     @QueryParam("addr")
     private String addr;
@@ -30,8 +30,8 @@ public class ExtendedUserSearchRequest<U extends ExtendedUser> extends UserSearc
         this.phone = phone;
     }
 
-    public boolean equals(U user) {
-        return super.equals(user) &&
+    public boolean matchesEntity(U user) {
+        return super.matchesEntity(user) &&
                    (addr == null || (user.getAddress() != null && user.getAddress().matches(StringUtils.getContainsRegex(addr)))) &&
                    (phone == null || user.getPhone().contains(phone));
     }

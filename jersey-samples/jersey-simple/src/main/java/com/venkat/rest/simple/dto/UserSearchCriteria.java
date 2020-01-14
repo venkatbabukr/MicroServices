@@ -4,10 +4,10 @@ import javax.ws.rs.QueryParam;
 
 import com.venkat.rest.simple.data.Sex;
 import com.venkat.rest.simple.data.User;
-import com.venkat.rest.simple.data.UserSearchCriteria;
+import com.venkat.rest.simple.data.SearchCriteria;
 import com.venkat.rest.simple.util.StringUtils;
 
-public class UserSearchRequest<U extends User> implements UserSearchCriteria<U> {
+public class UserSearchCriteria<U extends User> implements SearchCriteria<U> {
 
     @QueryParam("fn")
     private String fn;
@@ -65,7 +65,7 @@ public class UserSearchRequest<U extends User> implements UserSearchCriteria<U> 
     }
 
     @Override
-    public boolean equals(U user) {
+    public boolean matchesEntity(U user) {
         return (fn == null || user.getFirstName().matches(StringUtils.getContainsRegex(fn))) &&
                (ln == null || user.getLastName().matches(StringUtils.getContainsRegex(ln))) &&
                (email == null || user.getEmail().matches(StringUtils.getContainsRegex(email))) &&

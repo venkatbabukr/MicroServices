@@ -7,7 +7,7 @@ import java.util.Optional;
 import java.util.stream.Collectors;
 
 import com.venkat.rest.simple.data.User;
-import com.venkat.rest.simple.data.UserSearchCriteria;
+import com.venkat.rest.simple.data.SearchCriteria;
 import com.venkat.rest.simple.exceptions.JSONWebApplicationException;
 import com.venkat.rest.simple.exceptions.ServiceErrorCode;
 
@@ -39,9 +39,9 @@ public class UsersServiceTemplate<U extends User> {
                    .orElseThrow(() -> new JSONWebApplicationException(ServiceErrorCode.USER_ID_NOT_FOUND));
     }
 
-    public final List<U> searchUsers(UserSearchCriteria<U> sc) {
+    public final List<U> searchUsers(SearchCriteria<U> sc) {
         return usersList.stream()
-                   .filter(u -> sc.equals(u))
+                   .filter(u -> sc.matchesEntity(u))
                    .collect(Collectors.toList());
     }
 
