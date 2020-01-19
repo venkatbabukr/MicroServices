@@ -10,13 +10,13 @@ import javax.ws.rs.Produces;
 import javax.ws.rs.core.MediaType;
 
 import com.venkat.rest.simple.data.User;
-import com.venkat.rest.simple.dto.SearchResponse;
-import com.venkat.rest.simple.dto.UserSearchCriteria;
+import com.venkat.rest.simple.dto.in.UserDI;
+import com.venkat.rest.simple.dto.out.SearchResponse;
 import com.venkat.rest.simple.resources.UsersResourceTemplate;
 import com.venkat.rest.simple.services.UsersServiceV1;
 
 @Path(UsersResourceTemplate.RESOURCE_BASE_PATH)
-public class UsersResource extends UsersResourceTemplate<User, UsersServiceV1> {
+public class UsersResource extends UsersResourceTemplate<User, UserDI<User>, UsersServiceV1> {
 
     @Inject
     public UsersResource(UsersServiceV1 service) {
@@ -27,7 +27,7 @@ public class UsersResource extends UsersResourceTemplate<User, UsersServiceV1> {
     @Path("/search")
     @Consumes(MediaType.APPLICATION_JSON)
     @Produces(MediaType.APPLICATION_JSON)
-    public final SearchResponse<User> searchUsersGet(@BeanParam UserSearchCriteria<User> searchReq) {
+    public final SearchResponse<User> searchUsersGet(@BeanParam UserDI<User> searchReq) {
         return super.searchUsers(searchReq);
     }
 
@@ -35,7 +35,7 @@ public class UsersResource extends UsersResourceTemplate<User, UsersServiceV1> {
     @Path("/search")
     @Consumes(MediaType.APPLICATION_JSON)
     @Produces(MediaType.APPLICATION_JSON)
-    public final SearchResponse<User> searchUsersPost(UserSearchCriteria<User> searchReq) {
+    public final SearchResponse<User> searchUsersPost(UserDI<User> searchReq) {
         return super.searchUsers(searchReq);
     }
 

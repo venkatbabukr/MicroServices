@@ -9,12 +9,12 @@ import javax.ws.rs.Produces;
 import javax.ws.rs.core.MediaType;
 
 import com.venkat.rest.simple.data.ExtendedUser;
-import com.venkat.rest.simple.dto.ExtendedUserSearchCriteria;
-import com.venkat.rest.simple.dto.SearchResponse;
+import com.venkat.rest.simple.dto.in.ExtendedUserDI;
+import com.venkat.rest.simple.dto.out.SearchResponse;
 import com.venkat.rest.simple.resources.UsersResourceTemplate;
 import com.venkat.rest.simple.services.UsersServiceV2;
 
-public class UsersResource extends UsersResourceTemplate<ExtendedUser, UsersServiceV2> {
+public class UsersResource extends UsersResourceTemplate<ExtendedUser, ExtendedUserDI<ExtendedUser>, UsersServiceV2> {
 
     public UsersResource(UsersServiceV2 service) {
         super(service);
@@ -24,7 +24,7 @@ public class UsersResource extends UsersResourceTemplate<ExtendedUser, UsersServ
     @Path("/search")
     @Consumes(MediaType.APPLICATION_JSON)
     @Produces(MediaType.APPLICATION_JSON)
-    public final SearchResponse<ExtendedUser> searchUsersGet(@BeanParam ExtendedUserSearchCriteria<ExtendedUser> searchReq) {
+    public final SearchResponse<ExtendedUser> searchUsersGet(@BeanParam ExtendedUserDI<ExtendedUser> searchReq) {
         return super.searchUsers(searchReq);
     }
 
@@ -32,7 +32,7 @@ public class UsersResource extends UsersResourceTemplate<ExtendedUser, UsersServ
     @Path("/search")
     @Consumes(MediaType.APPLICATION_JSON)
     @Produces(MediaType.APPLICATION_JSON)
-    public final SearchResponse<ExtendedUser> searchUsersPost(ExtendedUserSearchCriteria<ExtendedUser> searchReq) {
+    public final SearchResponse<ExtendedUser> searchUsersPost(ExtendedUserDI<ExtendedUser> searchReq) {
         return super.searchUsers(searchReq);
     }
 

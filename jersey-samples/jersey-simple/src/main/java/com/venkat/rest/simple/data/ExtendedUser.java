@@ -1,12 +1,8 @@
 package com.venkat.rest.simple.data;
 
-import javax.validation.constraints.NotBlank;
-
 public class ExtendedUser extends User {
 
     private String address;
-
-    @NotBlank(message = "Phone is required...")
     private String phone;
 
     public ExtendedUser() { }
@@ -33,5 +29,14 @@ public class ExtendedUser extends User {
     public void setPhone(String phone) {
         this.phone = phone;
     }
+
+    /*
+    public ExtendedUser updateFrom(ExtendedUser other, boolean patch) {
+        super.updateFrom(other, patch);
+        this.address = (patch && other.address == null) ? this.address : other.address;
+        this.phone = (patch && other.phone == null) ? this.phone : other.phone;
+        return this;
+    }
+    */
 
 }

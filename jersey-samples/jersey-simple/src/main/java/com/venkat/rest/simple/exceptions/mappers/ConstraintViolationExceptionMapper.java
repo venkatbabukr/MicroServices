@@ -9,7 +9,7 @@ import javax.ws.rs.core.Response;
 import javax.ws.rs.core.Response.Status;
 import javax.ws.rs.ext.ExceptionMapper;
 
-import com.venkat.rest.simple.dto.ValidationExceptionDetailsResponse;
+import com.venkat.rest.simple.dto.out.ValidationExceptionDetailsResponse;
 
 public class ConstraintViolationExceptionMapper implements ExceptionMapper<ConstraintViolationException> {
 

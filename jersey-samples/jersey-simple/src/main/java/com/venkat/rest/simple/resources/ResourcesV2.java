@@ -3,7 +3,6 @@ package com.venkat.rest.simple.resources;
 import javax.inject.Inject;
 import javax.ws.rs.Path;
 
-import com.venkat.rest.simple.data.ExtendedUser;
 import com.venkat.rest.simple.resources.v2.UsersResource;
 import com.venkat.rest.simple.services.UsersServiceV2;
 

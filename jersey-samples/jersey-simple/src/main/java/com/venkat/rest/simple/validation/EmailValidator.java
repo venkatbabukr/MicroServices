@@ -1,4 +1,4 @@
-package com.venkat.rest.simple.data.validators;
+package com.venkat.rest.simple.validation;
 
 import javax.validation.ConstraintValidator;
 import javax.validation.ConstraintValidatorContext;

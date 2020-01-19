@@ -1,4 +1,4 @@
-package com.venkat.rest.simple.dto;
+package com.venkat.rest.simple.dto.out;
 
 import java.util.Collections;
 import java.util.List;

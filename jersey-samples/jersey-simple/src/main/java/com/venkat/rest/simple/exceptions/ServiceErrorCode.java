@@ -2,7 +2,7 @@ package com.venkat.rest.simple.exceptions;
 
 import javax.ws.rs.core.Response.Status;
 
-import com.venkat.rest.simple.dto.ExceptionDetailsResponse;
+import com.venkat.rest.simple.dto.out.ExceptionDetailsResponse;
 
 public enum ServiceErrorCode {
     USER_ID_EXISTS(Status.CONFLICT, "com.venkat.rest.simple.services.UsersService.addUser.conflict"),
