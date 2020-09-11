@@ -2,7 +2,7 @@ package com.venkat.springmvc.config;
 
 import org.springframework.web.servlet.support.AbstractAnnotationConfigDispatcherServletInitializer;
 
-public class AppMain extends AbstractAnnotationConfigDispatcherServletInitializer {
+public class AppMainServletV1 extends AbstractAnnotationConfigDispatcherServletInitializer {
 
     @Override
     protected Class<?>[] getRootConfigClasses() {
@@ -11,12 +11,17 @@ public class AppMain extends AbstractAnnotationConfigDispatcherServletInitialize
 
     @Override
     protected Class<?>[] getServletConfigClasses() {
-        return new Class<?>[] { AppMvcConfig.class };
+        return new Class<?>[] { AppMvcConfigV1.class };
+    }
+
+    @Override
+    protected String getServletName() {
+        return AppMainServletV1.class.getSimpleName();
     }
 
     @Override
     protected String[] getServletMappings() {
-        return new String[] { "/" };
+        return new String[] { "/v1/*" };
     }
 
 }

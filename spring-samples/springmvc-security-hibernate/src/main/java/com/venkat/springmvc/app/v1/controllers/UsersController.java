@@ -1,4 +1,4 @@
-package com.venkat.springmvc.app.controllers;
+package com.venkat.springmvc.app.v1.controllers;
 
 import java.util.List;
 
