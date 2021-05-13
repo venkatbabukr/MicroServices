@@ -15,7 +15,7 @@
         <hibernate.version>5.4.21.Final</hibernate.version>
         <!-- org.slf4j-version>1.6.1</org.slf4j-version -->
         <jackson-version>2.11.2</jackson-version>
-        <tomcat.version>7.0.99</tomcat.version>
+        <tomcat.version>7.0.107</tomcat.version>
     </properties>
 
 
